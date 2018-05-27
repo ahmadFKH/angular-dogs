@@ -4,11 +4,15 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AddDogComponent } from './add-dog/add-dog.component';
+import { AddOwnerComponent } from './add-owner/add-owner.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddDogComponent,
+    AddOwnerComponent
   ],
   imports: [
     BrowserModule,
