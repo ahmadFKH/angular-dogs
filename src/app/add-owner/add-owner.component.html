@@ -1,3 +1,13 @@
-<p>
-  add-owner works!
-</p>
+<div class="content-container">
+  <div class="form">
+      <h3>Current Owner: {{ ownerName }}</h3>
+      <h3>Owner Age: {{ ownerAge }}</h3>
+      <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="ownerName" name="name" placeholder="owner Name"/>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="ownerAge" name="owner" placeholder="age" />
+      </mat-form-field> <br>
+      <mat-checkbox>Dangerous dog license</mat-checkbox>
+  </div>
+</div>

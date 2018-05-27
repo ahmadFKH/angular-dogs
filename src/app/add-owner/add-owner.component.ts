@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddOwnerComponent implements OnInit {
 
-  constructor() { }
+  ownerName: string = 'ahmad';
+  ownerAge: number = 35;
+  
 
   ngOnInit() {
   }
