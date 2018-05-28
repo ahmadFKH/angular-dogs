@@ -1,4 +1,5 @@
 <div class="content-container">
+    <app-dogs-component></app-dogs-component>
     <div class="form">
         <h3>Current Dog: {{ dogName }}</h3>
         <h3>Current Dog Owner: {{ ownerName }}</h3>
@@ -12,6 +13,7 @@
             <input matInput [(ngModel)]="ownerName" placeholder="Owner Name">
           </mat-form-field>
     </div>
+    <div *ngIf="dogWeight < 10" [ngClass]="{'warning': dogWeight<5, 'message': true}">{{dogName}} is underweight</div>
 
     <img class="img-dog" src="{{ imageUrl }}" />
     

@@ -1,0 +1,7 @@
+<ul>
+    <mat-card *ngFor="let dog of dogs; index as i">{{i+1}}) {{dog.name | uppercase}} - {{dog.weight}}kgs owned by {{ dog.owner }} and born in 
+      <span *ngIf="dog.sign == 'minus'" class = "minus">{{dog.birthDate | date}}</span><span *ngIf="dog.sign == 'plus'">{{dog.birthDate | date:'shortDate'}}</span>
+      <button mat-raised-button color="warn" (click)="removeDog(i)">Delete Dog</button>
+      <button mat-button color="primary" ngClass="minus" *ngIf="dog.sign == 'minus'"  (click)="toggleSign(i)" ><img src="https://www.colourbox.com/preview/5697410-icon-plus-black.jpg"></button>
+      <button mat-button color="primary" ngClass="plus" *ngIf="dog.sign == 'plus'"  (click)="toggleSign(i)" ><img src="https://png.icons8.com/metro/1600/minus-math.png"></button></mat-card>
+</ul>
