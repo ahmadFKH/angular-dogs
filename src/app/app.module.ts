@@ -6,7 +6,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { DogsService } from './dogs.service'
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -32,7 +32,7 @@ import { DogsComponent } from './dogs/dogs.component';
     MatButtonModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [DogsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
