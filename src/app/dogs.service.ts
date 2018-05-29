@@ -22,4 +22,8 @@ export class DogsService {
     DOGS.push(dog);
   }
 
+  getDog(id) {
+    return DOGS[id];
+  }
+
 }

@@ -1,0 +1,10 @@
+<mat-form-field>
+  <input matInput [(ngModel)]="dog.name" placeholder="Dog Name">
+</mat-form-field>
+<mat-form-field>
+  <input matInput [(ngModel)]="dog.weight" placeholder="Dog Weight">
+</mat-form-field>
+<mat-form-field>
+  <input matInput [(ngModel)]="dog.owner" placeholder="Owner Name">
+</mat-form-field>
+<button mat-button (click)="UpdateDog(dog)" color="primary">Update</button>
