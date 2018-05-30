@@ -1,4 +1,4 @@
-export default class Walk {
+export  class Walk {
     public date : Date;
     public comment : string;
 

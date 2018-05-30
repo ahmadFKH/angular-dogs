@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { DogsService } from '../dogs.service';
 import { Dog } from '../dog';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-dogs',
@@ -15,7 +12,8 @@ export class DogsComponent implements OnInit {
 
   dogs = new Array<Dog>();
   filterTerm : string;
-  dateFormat = 'fullDate'
+  dateFormat = 'fullDate';
+  selectedDog:Dog;
 
   constructor(private dogsService : DogsService, private route : ActivatedRoute, private router : Router) {
     this.dogs = dogsService.getDogs();
@@ -37,6 +35,13 @@ export class DogsComponent implements OnInit {
 
   toggleDate() {
     this.dateFormat == 'fullDate' ? this.dateFormat = 'shortDate' : this.dateFormat = 'fullDate';
+  }
+  selectDog(dog:Dog) {
+    this.selectedDog = dog;
+  }
+  handleAddWalk(walk) {
+    this.dogsService.addWalk(this.selectedDog, walk);
+    this.selectedDog = undefined;
   }
 
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Dog } from './dog';
+import { Walk } from './walk';
 
 const DOGS =  [
   {id: 0, name: 'Rex', weight: 20, birthDate: new Date(2006, 2, 21), owner: 'Jack Daniels', walks: []},
@@ -30,6 +31,10 @@ export class DogsService {
   updateDog(id: number, dog: Dog) {
     var existingDogIndex = this.getDogs().findIndex((dog) => dog.id == id);
     DOGS[existingDogIndex] = dog;
+  }
+
+  addWalk(dog:Dog, walk:Walk) {
+    dog.walks.push(walk);
   }
 
 }
