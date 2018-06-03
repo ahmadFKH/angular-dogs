@@ -1,4 +1,4 @@
-import Walk from "./walk";
+import {Walk} from "./walk";
 
 export class Dog {
     public id : number;
@@ -6,6 +6,6 @@ export class Dog {
     public birthDate : Date;
     public weight : number;
     public owner : string;
-    public walks : Array<Walk> = new Array<Walk>();
+    public walks : Array<Walk> = new Array<Walk>()
     constructor() {}
 }

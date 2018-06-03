@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DogsService } from '../dogs.service';
 import { Dog } from '../dog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Walk } from '../walk';
 
 @Component({
   selector: 'app-dogs',
@@ -10,10 +11,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DogsComponent implements OnInit {
 
+  selectedDog : Dog;
   dogs = new Array<Dog>();
   filterTerm : string;
   dateFormat = 'fullDate';
-  selectedDog:Dog;
 
   constructor(private dogsService : DogsService, private route : ActivatedRoute, private router : Router) {
     this.dogs = dogsService.getDogs();
@@ -23,25 +24,30 @@ export class DogsComponent implements OnInit {
     this.route.queryParams.subscribe(queryParams => {
       this.filterTerm = queryParams.name;
     });
-  }
+    }
 
-  onFilterChanged() {
-    this.router.navigate(['.'], { queryParams: { name: this.filterTerm }});
+
+  onFilterChanged(filterString) {
+    this.router.navigate(['.'], { queryParams: { name: filterString }});
   }
 
   removeDog(index) {
     this.dogs.splice(index, 1);
+    this.dogsService.decrement();
   }
 
   toggleDate() {
     this.dateFormat == 'fullDate' ? this.dateFormat = 'shortDate' : this.dateFormat = 'fullDate';
   }
-  selectDog(dog:Dog) {
+
+  selectDog(dog) {
     this.selectedDog = dog;
   }
-  handleAddWalk(walk) {
+
+  handleAddWalk(walk, score) {
     this.dogsService.addWalk(this.selectedDog, walk);
-    this.selectedDog = undefined;
+    this.dogsService.addScore(1);
   }
+
 
 }
