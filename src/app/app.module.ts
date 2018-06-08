@@ -6,10 +6,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AppComponent } from './app.component';
 import { AddDogComponent } from './add-dog/add-dog.component';
 import { AddOwnerComponent } from './add-owner/add-owner.component';
@@ -20,8 +20,7 @@ import { EditDogComponent } from './edit-dog/edit-dog.component';
 import { FilterPipe } from './filter.pipe';
 import { AddWalkComponent } from './add-walk/add-walk.component';
 import { FilterComponent } from './filter/filter.component';
-import { ScoreComponentComponent } from './score-component/score-component.component';
-import { ChangeNumberComponent } from './change-number/change-number.component';
+import { ScoreComponent } from './score/score.component';
 
 
 @NgModule({
@@ -34,8 +33,7 @@ import { ChangeNumberComponent } from './change-number/change-number.component';
     FilterPipe,
     AddWalkComponent,
     FilterComponent,
-    ScoreComponentComponent,
-    ChangeNumberComponent
+    ScoreComponent,
     ],
   imports: [
     BrowserModule,
@@ -46,7 +44,9 @@ import { ChangeNumberComponent } from './change-number/change-number.component';
     FormsModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [DogsService],
   bootstrap: [AppComponent]

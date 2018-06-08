@@ -13,13 +13,13 @@ export class ScoreComponentComponent implements OnInit {
   constructor(private dogsService: DogsService) { }
 
   ngOnInit() {
-    this.score = this.dogsService.currentScore;
+    this.score = this.dogsService.score;
     this.dogsService.scoreUpdated.subscribe((score) => {
       this.score += score;
     })
   }
-  ngOnDestroy() {
-    this.dogsService.scoreUpdated.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.dogsService.scoreUpdated.unsubscribe();
+  // }
 
 }
